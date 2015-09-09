@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Lottery-New"
+  id="myeclipse.1438745514696"
+  context-root="/Lottery-New"
+  j2ee-spec="5.0"
+  archive="Lottery-New.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

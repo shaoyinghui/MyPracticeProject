@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>中信银行微信大抽奖</title>
+
+<script>
+    (function () {
+        var standardDpi, dpi, w, scale, text;
+        w = window.screen.width;
+        if (w > 0) {
+            if (w < 320) {
+                standardDpi = 120;
+            } else if (w < 480) {
+                standardDpi = 160;
+            } else if (w < 640) {
+                standardDpi = 240;
+            } else if (w < 960) {
+                standardDpi = 320;
+            } else if (w < 1280) {
+                standardDpi = 480;
+            } else {
+                standardDpi = 640;
+            }
+        }
+
+        dpi = 640 * standardDpi / w;
+        dpi = Math.floor(dpi);
+        scale = 640 / w;
+        var userAgt=navigator.userAgent;
+
+        if(window.devicePixelRatio === 3 && window.navigator.appVersion.match(/iphone/gi)){
+            // iphone6 plus
+            text = '<meta name="viewport" content="width=device-width, initial-scale=0.64, maximum-scale=0.64, minimum-scale=0.64, user-scalable=no" />';
+        }else if (window.devicePixelRatio === 2 && window.navigator.appVersion.match(/iphone/gi)) {
+            text = '<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no" />';
+        }else if(userAgt.match(/Firefox/gi)||(userAgt.match(/Chrome/gi) && !userAgt.match(/MicroMessenger/gi))) {
+            text = '<meta name="viewport" content="width=640,initial-scale='+ (w / 640) +', maximum-scale='+ (w / 640) +', minimum-scale='+ (w / 640) +', user-scalable=no"/>';
+        } else{
+            text = '<meta name="viewport" content="width=640,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=' + dpi + ', user-scalable=no"/>';
+        }
+
+        document.write(text);
+        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            msViewportStyle.appendChild(
+                document.createTextNode("@-ms-viewport{width:auto!important}")
+            );
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    })();
+</script>
+
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/awardRotate.js"></script>
+
+<script type="text/javascript">
+var turnplate={
+		restaraunts:[],				//大转盘奖品名称
+		colors:[],					//大转盘奖品区块对应背景颜色
+		outsideRadius:192,			//大转盘外圆的半径
+		textRadius:155,				//大转盘奖品位置距离圆心的距离
+		insideRadius:64,			//大转盘内圆的半径
+		startAngle:0,				//开始角度
+		
+		bRotate:false				//false:停止;ture:旋转
+	
+};
+
+$(document).ready(function(){
+	//动态添加大转盘的奖品与奖品区域背景颜色
+	turnplate.restaraunts = ["谢谢参与", "300元礼品", "谢谢参与", "100元双人电影票", "谢谢参与", "十元话费", "谢谢参与 ", "100元双人电影票", "谢谢参与", "十元话费"];
+	turnplate.colors = ["#FFD700", "#FFFFFF", "#FFD700", "#FFFFFF","#FFD700", "#FFFFFF", "#FFD700", "#FFFFFF","#FFD700", "#FFFFFF"];
+
+	
+	 
+
+	
+	var rotateTimeOut = function (){
+		$('#wheelcanvas').rotate({
+			angle:0,
+			animateTo:2160,
+			duration:8000,
+			callback:function (){
+				alert('网络超时，请检查您的网络设置！');
+			}
+		});
+	};
+
+	//旋转转盘 item:奖品位置; txt：提示语;
+	var rotateFn = function (item, txt){
+		var angles = item * (360 / turnplate.restaraunts.length) - (360 / (turnplate.restaraunts.length*2));
+		if(angles<270){
+			angles = 270 - angles; 
+		}else{
+			angles = 360 - angles + 270;
+		}
+		$('#wheelcanvas').stopRotate();
+		$('#wheelcanvas').rotate({
+			angle:0,
+			animateTo:angles+1800,
+			duration:8000,
+			callback:function (){
+				alert(txt);
+				turnplate.bRotate = !turnplate.bRotate;
+				$.post("lotteryServlet",{"wechat_id":"yuio","gift":txt,},function(data){
+   var  prize_num=data.remaining_number;
+   alert("您剩余的抽奖次数为："+prize_num);
+   
+    },"json");
+    if(item==2||item==4||item==6||item==8||item==10)
+		                  {
+		                    function zhongjiang()
+		                           {
+		                          document.getElementById("kwstu").style.display="block";
+		                            }
+		                            zhongjiang();
+		                    }
+				
+				
+				
+				
+			}
+		});
+};
+
+
+
+	$('.pointer').click(function (){
+	
+	//判断是不是本公众号用户，首先判断wechat_id是否为空。
+
+	
+	$.post("personServlet?wechat_id=yyyyyy",function(data){
+	var judge=data.judge;
+	 alert(judge);
+	  if(judge.equals="noperson")
+	  {
+	  alert("关注公众号才有抽奖资格");
+	  //弹出一个二维码？
+	  }
+	  
+	  
+	  
+	  //根据weixin_id从数据库获取prize_num
+	  
+	       else if(judge.equal="0")
+	             {
+	        //判断是否是银行的客户
+                    confirm("对不起，你的三次抽奖机会已经用完！");
+	              
+	   
+	                 }
+	            else if(judge.equal="zhongjiang")
+	                     {
+	                     confirm("你已经抽中奖品");
+	                     //还得判断他是否写了电话和号码
+	                     
+	                     
+	                      }
+
+	             else{
+	                 //原来代码
+	                  if(turnplate.bRotate)return;
+		              turnplate.bRotate = !turnplate.bRotate;
+		              //获取随机数(奖品个数范围内)
+		              var item = rnd();
+		              rotateFn(item, turnplate.restaraunts[item-1]);
+		              
+		              //抽中之后弹出对话框，输入电话，姓名
+		               
+		             
+	                 }
+	     
+	       //原来代码
+	                
+
+	
+	},"json");
+	
+	
+	
+		  
+		               
+		             
+	 
+	   
+		
+	});
+});
+
+function rnd(){
+	//var random = Math.floor(Math.random()*(m-n+1)+n);
+	//return random;
+	
+	var random = Math.floor(Math.random()*100+1);
+	if(random<10)   //控制几率
+	{return 1;}
+	else if(random<20)
+    {return 2;}
+	else if(random<30)
+    {return 3;}
+	else if(random<40)
+    {return 4;}
+	else if(random<50)
+    {return 5;}
+	else if(random<60)
+    {return 6;}
+	else if(random<70)
+    {return 7;}
+	else if(random<80)
+    {return 8;}
+	else if(random<90)
+    {return 9;}
+	else if(random<100)
+    {return 10;}
+	
+}
+
+
+//页面所有元素加载完毕后执行drawRouletteWheel()方法对转盘进行渲染
+window.onload=function(){
+	drawRouletteWheel();
+};
+
+function drawRouletteWheel() {    
+  var canvas = document.getElementById("wheelcanvas");    
+  if (canvas.getContext) {
+	  //根据奖品个数计算圆周角度
+	  var arc = Math.PI / (turnplate.restaraunts.length/2);
+	  var ctx = canvas.getContext("2d");
+	  //在给定矩形内清空一个矩形
+	  ctx.clearRect(0,0,422,422);
+	  //strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式  
+	  ctx.strokeStyle = "#FFBE04";
+	  //font 属性设置或返回画布上文本内容的当前字体属性
+	  ctx.font = '16px Microsoft YaHei';      
+	  for(var i = 0; i < turnplate.restaraunts.length; i++) {       
+		  var angle = turnplate.startAngle + i * arc;
+		  ctx.fillStyle = turnplate.colors[i];
+		  ctx.beginPath();
+		  //arc(x,y,r,起始角,结束角,绘制方向) 方法创建弧/曲线（用于创建圆或部分圆）    
+		  ctx.arc(211, 211, turnplate.outsideRadius, angle, angle + arc, false);    
+		  ctx.arc(211, 211, turnplate.insideRadius, angle + arc, angle, true);
+		  ctx.stroke();  
+		  ctx.fill();
+		  //锁画布(为了保存之前的画布状态)
+		  ctx.save();   
+		  
+		  //----绘制奖品开始----
+		  ctx.fillStyle = "#E5302F";
+		  var text = turnplate.restaraunts[i];
+		  var line_height = 17;
+		  //translate方法重新映射画布上的 (0,0) 位置
+		  ctx.translate(211 + Math.cos(angle + arc / 2) * turnplate.textRadius, 211 + Math.sin(angle + arc / 2) * turnplate.textRadius);
+		  
+		  //rotate方法旋转当前的绘图
+		  ctx.rotate(angle + arc / 2 + Math.PI / 2);
+		  
+		  /** 下面代码根据奖品类型、奖品名称长度渲染不同效果，如字体、颜色、图片效果。(具体根据实际情况改变) **/
+		  if(text.indexOf("M")>0){//流量包
+			  var texts = text.split("M");
+			  for(var j = 0; j<texts.length; j++){
+				  ctx.font = j == 0?'bold 20px Microsoft YaHei':'16px Microsoft YaHei';
+				  if(j == 0){
+					  ctx.fillText(texts[j]+"M", -ctx.measureText(texts[j]+"M").width / 2, j * line_height);
+				  }else{
+					  ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height);
+				  }
+			  }
+		  }else if(text.indexOf("M") == -1 && text.length>6){//奖品名称长度超过一定范围 
+			  text = text.substring(0,6)+"||"+text.substring(6);
+			  var texts = text.split("||");
+			  for(var j = 0; j<texts.length; j++){
+				  ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height);
+			  }
+		  }else{
+			  //在画布上绘制填色的文本。文本的默认颜色是黑色
+			  //measureText()方法返回包含一个对象，该对象包含以像素计的指定字体宽度
+			  ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+		  }
+		  
+		  //添加对应图标
+		  if(text.indexOf("闪币")>0){
+			  var img= document.getElementById("shan-img");
+			  img.onload=function(){  
+				  ctx.drawImage(img,-15,10);      
+			  }; 
+			  ctx.drawImage(img,-15,10);  
+		  }else if(text.indexOf("谢谢参与")>=0){
+			  var img= document.getElementById("sorry-img");
+			  img.onload=function(){  
+				  ctx.drawImage(img,-15,10);      
+			  };  
+			  ctx.drawImage(img,-15,10);  
+		  }
+		  //把当前画布返回（调整）到上一个save()状态之前 
+		  ctx.restore();
+		  //----绘制奖品结束----
+	  }     
+  } 
+}
+
+
+//中奖客户输入的号码和姓名
+
+function cunshuju()
+{
+ var a=document.getElementById("phone").value;
+ var b=document.getElementById("zhongjiangxingming").value;
+//传到servlet那边去
+}
+
+</script>
+</head>
+<style>
+.bg_color{
+     background:#f93f3f;
+}
+
+
+
+.bg{
+   
+    width:640px;
+	height:926px;
+	margin:0 auto;
+	overflow:hidden;
+    background:url(images/new-bg.png) no-repeat 0 0;
+	background-color:#ff4b3a;
+	padding-bottom:200px;
+
+}
+
+.turnplate
+{  
+   position:relative;
+   width:421px;
+   height:421px;
+   margin:300px auto;
+   background:url(images/turnplate-bg.png) no-repeat;
+   z-index:1;
+   
+}
+
+.pointer
+{ 
+  position:absolute;
+  width:133px;
+  height:179px;
+  background:url(images/turnplate-pointer.png) no-repeat;
+  margin:23.5% 34.5%;
+ 
+ }
+ 
+
+
+#kwstu{
+    position:fixed;
+    width:500px;
+    height:450px;
+    background:black;
+    z-index:5;
+    display:none;
+    opacity:0.8;
+    font-size:35px;
+    color:white;
+    margin:40% 12%;
+    
+}
+
+
+.shurubox
+{
+ position:relative;
+ width:400px;
+ height:250px;
+ margin:8% 10%;
+}
+
+
+ 
+</style>
+
+<body class="bg_color">
+
+<div id="kwstu">
+
+<div class="shurubox">
+<form method="post" action="lotteryServlet.java"> 
+请输入你的姓名：
+<br>
+<input type="text" id="zhongjiangxingming" style="width:400px; height:50px;font-size:35px" onkeyup="value=value.replace(/[ -~]/g,'')">
+
+
+<br><br>
+
+<br>
+请输入你的号码：
+<input type="text" id="phone"  style="width:400px; height:50px;font-size:35px;"maxlength="11" onkeyup="value=value.replace(/[^1234567890-]+/g,'')" >
+<br>
+<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="button" id="tijiao" style="width:200px;height:50px; font-size:35px; font-color:black; background:white;" value="确定提交" onClick="cunshuju()">
+
+</form>
+</div>
+</div>
+
+
+    <img src="images/1.png" id="shan-img" style="display:none;" />
+    <img src="images/2.png" id="sorry-img" style="display:none;" />  <!-- 奖品的图片-->
+	
+    <div class="bg"> 
+		<div class="turnplate">
+		<canvas class="item" id="wheelcanvas" width="422px" height="422px" style="position:absolute;" ></canvas>  
+		<div class="pointer" style=" z-index:100;"></div>
+		</div>
+	</div>
+
+</body>
+</html>
