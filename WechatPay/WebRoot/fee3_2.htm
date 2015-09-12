@@ -1,0 +1,118 @@
+<!DOCTYPE html> 
+<html> 
+
+<head>
+	<meta charset="gbk">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0">  
+	<title>宅付通个人缴费平台</title> 
+    
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"/>
+
+	
+    <!-- scripts -->
+	<script src="code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    
+    
+    <!-- css / theme -->
+   	<link rel="stylesheet" href="assets/css/1.css"><!-- change the number of the css file to switch themes -->
+    <link rel="stylesheet" href="http://assets/css/style.css">
+
+    
+    <!-- add to homepage bubble on iphone, ipad  -->
+	<script type="text/javascript">
+	    if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
+	        document.write('<link rel="stylesheet" href="assets/add-bubble/style/add2home.css">');
+	        document.write('<script type="application\/javascript" src="assets/add-bubble/src/add2home.js" charset="gbk"><\/s' + 'cript>');
+	    }
+	</script>
+	<!-- /add to homepage bubble on iphone, ipad  -->
+    
+    
+    
+    
+      <script type="text/javascript">
+$(function(){
+		//dd();
+	});
+
+	function dd(fee_table_id,fee_type,fee_number,is_student){
+
+location.href="http://localhost:8080/WechatPay/getFeeNumber?city="+localStorage.address+"&fee_type="+fee_type+"&fee_table_id="+fee_table_id+"&fee_number="+fee_number+"&is_student="+is_student;
+		
+		
+	}
+
+  
+    </script>
+
+</head> 
+
+
+<body><div data-role="page">
+
+	<!-- header -->
+	<div data-role="header" class="page-header home-page-header">
+		<h1></h1>
+	</div>
+    <!--/header -->
+
+	<div data-role="content">	
+    <img src="assets/images/ICON.png" style="height: 94px; width: 464px; margin-top: 0px">
+    <div class="logo"></div><!-- change the background image of this div to change your logo -->
+    
+    
+    <b>请选择费用类型</b>
+    	<!-- navigation -->
+		<ul data-role="listview" data-inset="true" id="listview" class="shadowBox">
+
+            
+             <li><a href=""rel="external"onclick="dd('3','qimengjiaoshipeixun','1728','0')">启蒙级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','1jiaoshipeixun','1728','0')">1级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','2jiaoshipeixun','1728','0')">2级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','3jiaoshipeixun','1728','0')">3级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','4jiaoshipeixun','2278','0')">4级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','5jiaoshipeixun','2278','0')">5级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','6jiaoshipeixun','2278','0')">6级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','7jiaoshipeixun','2278','0')">7级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','8jiaoshipeixun','1938','0')">8级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','9jiaoshipeixun','1938','0')">9级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','10jiaoshipeixun','1938','0')">10级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','11jiaoshipeixun','2278','0')">11级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','12jiaoshipeixun','2278','0')">12级教师培训费用</a></li>
+            <li><a href=""rel="external"onclick="dd('3','13jiaoshipeixun','2278','0')">13级教师培训费用</a></li>
+
+   							
+		
+        </ul>
+        <img src="assets/images/shadow2.png" class="shadow" alt="shadow">
+        <!-- /navigation -->
+		
+		<!-- solo button which opens popup -->
+        <!-- /solo button which opens popup -->
+
+        
+
+         <!-- social icons --> 
+		<p class="social">
+            <div align="center"><b><span class="auto-style1">西安市少儿歌舞学会
+                </span>
+                <br class="auto-style1" />
+                <span class="auto-style1">官方网站：www.xcsda.com</span></b></div>
+        <!-- /social icons -->
+           
+        <!-- phone contact -->  
+        <p class="phone-contact"></p>
+		<!-- /phone contact -->
+        
+        
+        
+  	</div><!-- /content -->
+	
+
+	<!-- footer -->
+	
+</div>
+
+</body>
+</html>

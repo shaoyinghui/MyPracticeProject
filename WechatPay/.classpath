@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/lib/commons-collections-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/lib/ezmorph-1.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/lib/json-lib-1.1-jdk13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/lib/xom-1.0d10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/tom/Desktop/mysql-connector-java-3.0.16-ga-bin.jar"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>

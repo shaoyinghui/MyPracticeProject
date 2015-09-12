@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html> 
+
+<head>
+	<meta charset="gbk">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0">  
+	<title>宅付通个人缴费平台</title> 
+    
+
+
+	
+    <!-- scripts -->
+	<script src="code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    
+    
+    <!-- css / theme -->
+   	<link rel="stylesheet" href="assets/css/1.css"><!-- change the number of the css file to switch themes -->
+ 
+
+    
+    <!-- add to homepage bubble on iphone, ipad  -->
+	<script type="text/javascript">
+
+	/*	if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
+			document.write('<link rel="stylesheet" href="assets/add-bubble/style/add2home.css">');
+			document.write('<script type="application\/javascript" src="assets/add-bubble/src/add2home.js" charset="gbk"><\/s' + 'cript>');
+		}*/
+
+		function dd(add){
+		
+
+
+           
+		    localStorage.address = add;
+
+		    location.href = "feetype.html";
+		    //window.open("feetype.html");
+            //alert(localStorage.address);
+		}
+
+
+
+
+	</script>
+	<!-- /add to homepage bubble on iphone, ipad  -->
+    
+
+</head> 
+
+
+<body><div data-role="page">
+
+	<!-- header -->
+	<div data-role="header" class="page-header home-page-header">
+		<h1></h1>
+	</div>
+    <!--/header -->
+
+	<div data-role="content">	
+    <img src="assets/images/ICON.png" style="height: 94px; width: 464px; margin-top: 0px">
+    
+    <div class="logo"></div><!-- change the background image of this div to change your logo -->
+   
+   <script type="text/javascript">
+   sessionStorage.getItem(key);
+sessionStorage.setItem(key,value);
+sessionStorage.removeItem(key);
+</script>
+   
+    
+    
+    <b>请选择城市</b>
+    	<!-- navigation -->
+		<ul data-role="listview" data-inset="true" id="listview" class="shadowBox">
+
+			<li><a href="#" onclick="dd('xian')"   rel="external">西安市</a></li>
+            <li><a href=""  onclick="dd('baoji')"   rel="external">宝鸡市</a></li>
+			<li><a href=""  onclick="dd('xianyang')" rel="external">咸阳市</a></li>
+            <li><a href="" onclick="dd('weinan')"rel="external">渭南市</a></li>
+            <li><a href=""onclick="dd('tongchuan')" rel="external">铜川市</a></li>
+            <li><a href=""onclick="dd('yanan')" rel="external">延安市</a></li>
+            <li><a href="" onclick="dd('yulin')" rel="external">榆林市</a></li>
+            <li><a href=""onclick="dd('ankang')" rel="external">安康市</a></li>
+            <li><a href=""onclick="dd('hanzhong')" rel="external">汉中市</a></li>
+            <li><a href="" onclick="dd('shangluo')" rel="external">商洛市</a></li>
+            <li><a href="" onclick="dd('yangling')" rel="external">杨凌示范区</a></li>
+		
+        </ul>
+        <img src="assets/images/shadow2.png" class="shadow" alt="shadow">
+        <!-- /navigation -->
+		
+		<!-- solo button which opens popup -->
+        <!-- /solo button which opens popup -->
+
+        
+
+         <!-- social icons --> 
+		<p class="social">
+            <div align="center"><b><span class="auto-style1">西安市少儿歌舞学会
+                </span>
+                <br class="auto-style1" />
+                <span class="auto-style1">官方网站：www.xcsda.com</span></b></div>
+        <!-- /social icons -->
+           
+        <!-- phone contact -->  
+        <p class="phone-contact"></p>
+		<!-- /phone contact -->
+        
+        
+        
+  	</div><!-- /content -->
+	
+
+	<!-- footer -->
+	
+</div>
+
+</body>
+</html>
