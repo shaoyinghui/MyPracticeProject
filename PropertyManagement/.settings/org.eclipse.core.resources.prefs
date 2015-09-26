@@ -1,0 +1,10 @@
+#Wed Jul 22 20:41:13 CST 2015
+eclipse.preferences.version=1
+encoding//WebRoot/index.html=UTF-8
+encoding//WebRoot/js/index.js=UTF-8
+encoding//WebRoot/js/manage_house.js=UTF-8
+encoding//WebRoot/js/owner_inquire.js=UTF-8
+encoding//WebRoot/js/owner_inquire_estate.js=UTF-8
+encoding//WebRoot/js/owner_inquire_repair.js=UTF-8
+encoding//src/servlet/ChargeServlet.java=UTF-8
+encoding//src/servlet/PersonalInfoServlet.java=UTF-8

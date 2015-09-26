@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.House" table="house">
+		<id name="house_id" >
+		 <generator class="identity"/>
+		 </id>
+		<property name="house_building" ></property>
+		<property name="house_floor" ></property>
+        <property name="house_unit" ></property>
+        <property name="house_num" ></property>
+        <property name="house_area" ></property>
+        <property name="house_type" ></property>
+        <property name="house_remark" ></property>
+    </class>
+
+	<class name="model.Owner_account" table="owner_account">
+		<id name="account_id" >
+		 <generator class="identity"/>
+		 </id>
+		<property name="account_name" ></property>
+		<property name="account_password" ></property>
+		<property name="check_in_time" ></property>
+		 <many-to-one name="house" column="house_id" unique="true" lazy = "false" />
+    </class>
+    
+    	<class name="model.Owner" table="owner">
+		<id name="owner_id" >
+		 <generator class="identity"/>
+		 </id>
+		<property name="owner_name" ></property>
+		<property name="owner_phone" ></property>
+        <property name="owner_gender" ></property>
+        <property name="owner_email" ></property>
+        <property name="owner_age" ></property>
+     
+		 <many-to-one name="owner_account" column="account_id"/>
+    </class>
+    
+    <class name="model.Vehicle" table="vehicle">
+		<id name="vehicle_id" >
+		 <generator class="identity"/>
+		 </id>
+		<property name="vehicle_plate" ></property>
+		<property name="vehicle_register_time" ></property>
+
+		 <many-to-one name="owner_account" column="account_id"/>
+    </class>
+        <class name="model.Repair_report" table="repair_report">
+		<id name="repair_report_id" >
+		 <generator class="identity"/>
+		 </id>
+		<property name="repair_description" ></property>
+        <property name="repair_object" ></property>
+        <property name="object_position" ></property>
+        <property name="apply_time" ></property>
+        <property name="repairer_name" ></property>
+        <property name="repairer_phone" ></property>
+        <property name="repair_result" ></property>
+        <property name="repair_fee" type = "java.lang.Float" ></property>
+        <property name="repair_time" ></property>
+        
+		 <many-to-one name="house" column="house_id"/>
+    </class>
+    
+    
+     <class name="model.Park_space" table="park_space">
+		<id name="park_space_id" >
+		 <generator class="identity"/>
+		 </id>
+		<property name="park_position" ></property>
+
+		 <many-to-one name="owner_account" column="account_id"/>
+    </class>
+    
+
+	<class name="model.Manager" table="manager">
+		<id name="manager_id">
+		<generator class="identity"/></id>
+		<property name="manager_account"/>
+		<property name="manager_password"/>
+		<property name="manager_name"/>
+		<property name="manager_phone"/>
+		<property name="manager_tel"/>
+		<property name="manager_email"/>
+		<property name="manager_gender"/>
+		<property name="manager_age"/>
+		<property name="entry_time"/>
+    </class>
+
+	<class name="model.Root" table="root">
+		<id name="root_account"/>
+		<property name="root_id"/>
+		<property name="root_password"/>
+    </class>
+	
+	
+	<class name="model.Notice" table="notice">
+		<id name="notice_id">
+		<generator class="identity"/></id>
+		<property name="notice_title"/>
+		<property name="notice_content"/>
+		<property name="notice_publish_time"/>
+		<many-to-one name="notice_type" column="notice_type_id"></many-to-one>
+    </class>
+    
+    <class name="model.Notice_type" table="notice_type">
+		<id name="notice_type_id"/>
+		<property name="notice_type"/>
+    </class>
+    
+    <class name="model.Unit_price" table="unit_price">
+		<id name="unit_price_id">
+		<generator class="identity"/></id>
+		<property name="unit_price"/>
+		<property name="date"/>
+    </class>
+    
+    	<class name="model.Estate_fee" table="estate_fee">
+		<id name="estate_fee_id">
+		<generator class="identity"/></id>
+		<property name="estate_fee"/>
+		<property name="estate_fee_date"/>
+		<many-to-one name="owner_account" column="account_id"></many-to-one>
+    </class>
+    
+</hibernate-mapping>

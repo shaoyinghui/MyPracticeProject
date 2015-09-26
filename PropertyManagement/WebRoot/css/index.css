@@ -1,0 +1,102 @@
+body{
+	font-family: '微软雅黑';
+}
+.plant{
+	background-color: #cccccc;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5%;
+	border-radius: 3%;
+}
+#login_form{
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 5%;
+	padding-bottom: 3%;
+	padding-left: 5%;
+	padding-right: 5%;
+	background-color: white;
+	border-bottom-right-radius: 3%;
+	border-bottom-left-radius: 3%;
+}
+
+.jumbotron_extra{
+	padding-top: 5%;
+	height: 100%;
+}
+
+.select_div{
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.owner_login, .manager_login{	
+	background-color: #eeeeee;
+	padding: 2%;
+	height: 34px;
+	cursor: pointer;
+}
+
+.owner_login{
+	border-top-left-radius: 3%;
+}
+
+.manager_login{
+	border-top-right-radius:3%;
+}
+
+.selected{
+	background-color: white;
+}
+
+.village_name{
+	margin-bottom: 5%;
+	font-family: '黑体';
+	font-size: 20em;
+	margin-right: 52%;
+}
+
+.form_group_extra{
+}
+
+.btn_color_extra{
+	background-color:#ebebeb;
+	border:none;
+}
+
+.error_hint{
+	display: block;
+	padding: 0;
+	height: 13px;
+	width: 100%;
+	margin-bottom: 0;
+}
+.error{
+	color:#C2C2C2;
+	font-family:'微软雅黑';
+	font-size: small;
+	margin-top: 0px;
+}
+
+button{
+	font-size:small;
+}
+
+h1{
+	font-family:'微软雅黑';
+	font-weight: 10em;
+}
+
+p{
+	text-indent:2em
+}
+
+#forget_password{
+	display: block;
+	font-size: small;
+	color: #969696;
+	text-decoration: none;
+	margin-left: 80%;
+}

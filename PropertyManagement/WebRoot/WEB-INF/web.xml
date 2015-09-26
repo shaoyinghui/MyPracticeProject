@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>ChargeServlet</servlet-name>
+  <servlet-class>servlet.ChargeServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>EstateServlet</servlet-name>
+  <servlet-class>servlet.EstateServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>LoginServlet</servlet-name>
+  <servlet-class>servlet.LoginServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>NoticeServlet</servlet-name>
+  <servlet-class>servlet.NoticeServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>PersonalInfoServlet</servlet-name>
+  <servlet-class>servlet.PersonalInfoServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>RepairServlet</servlet-name>
+  <servlet-class>servlet.RepairServlet</servlet-class>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>RootServlet</servlet-name>
+  <servlet-class>servlet.RootServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>ChargeServlet</servlet-name>
+  <url-pattern>/servlet/ChargeServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>EstateServlet</servlet-name>
+  <url-pattern>/servlet/EstateServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>LoginServlet</servlet-name>
+  <url-pattern>/servlet/LoginServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>NoticeServlet</servlet-name>
+  <url-pattern>/servlet/NoticeServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>PersonalInfoServlet</servlet-name>
+  <url-pattern>/servlet/PersonalInfoServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>RepairServlet</servlet-name>
+  <url-pattern>/servlet/RepairServlet</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>RootServlet</servlet-name>
+  <url-pattern>/servlet/RootServlet</url-pattern>
+ </servlet-mapping>
+ <welcome-file-list>
+  <welcome-file>index.jsp</welcome-file>
+ </welcome-file-list>
+ <error-page>
+  <error-code>404</error-code>
+  <location>/ErrorPage.jsp</location>
+ </error-page>
+ <error-page>
+  <error-code>500</error-code>
+  <location>/ErrorPage500.jsp</location>
+ </error-page>
+ <login-config>
+  <auth-method>BASIC</auth-method>
+ </login-config>
+</web-app>

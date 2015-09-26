@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="no-js">
+    
+    <head>
+        <title>智能小区管理系统</title>
+        <!-- Bootstrap -->
+        <meta charset = "utf-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <!--<link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">-->
+        <link href="css/styles.css" rel="stylesheet" media="screen">
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src = "js/jquery.validate_cn.min.js"></script>
+        <script type="text/javascript" src = "js/manage_repair.js"></script>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!--<script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+    </head>
+    
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="index.html">智能小区管理系统</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <!--用户名-->
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> 郭家琪 <i class="caret"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="personal_info.html">个人信息管理</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a tabindex="-1" href="login.html">注销</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav">
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">物业管理<b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" id="menu1">
+                                    <li>
+                                        <a href="manage_vehicle.html">车辆管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="manage_house.html">房产管理</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">费用管理<i class="caret"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="manage_estate_fee.html">物业管理费</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">水费</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">电费</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">保卫绿化<i class="caret"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="#">保卫管理</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="#">绿化管理</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="">
+                                <a href="manage_notice.html">公告管理</a>
+                            </li>
+
+                            <li class="active">
+                                <a href="manage_repair.html">保修管理</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                        <li class="active">
+                            <a href="manage_repair.html"><i class="icon-chevron-right"></i>查询报修信息</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/span-->
+                <div class="span9" id="content">
+                    <div class="row-fluid">
+                        <!-- block -->
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <div class="muted pull-left">查询报修信息</div>
+                                <span class = "select_notice"><a href="#" data-toggle="modal" data-target="#select_repair_modal">筛选</a></span>
+                            </div>
+                            <div class="block-content collapse in">
+                                <legend>报修信息列表</legend>
+                                <div class="alert alert-info" id = "no_repair_report" role="alert">
+                                    <strong>很抱歉！暂时没有报修信息！</strong>
+                                </div>
+                                <table class="table" id = 'repair_report_table'>
+                                    
+                                    <thead>
+                                        <tr>
+                                            <th>房产编号</th>
+                                            <th>报修物品描述</th>
+                                            <th>维修人员</th>
+                                            <th>维修员电话</th>
+                                            <th>维修结果</th>
+                                            <th>维修费用</th>
+                                            <th>报修时间</th>
+                                            <th>维修完成时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /block -->
+                    </div>
+                        </div>
+                  </div>
+              </div>
+
+
+        <!-- Modal 筛选报修信息 -->
+        <div class="modal fade" id="select_repair_modal" style="display: none;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">筛选报修信息</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal" id = "select_repair_report_by_house">
+                    <div class="control-group">
+                      <label class="control-label" for="house_building">栋宇</label>
+                      <div class="controls">
+                        <select id="house_building">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="house_unit">单元</label>
+                      <div class="controls">
+                        <select id="house_unit">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="house_floor">楼层</label>
+                      <div class="controls">
+                        <select id="house_floor">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="house_num">房号</label>
+                      <div class="controls">
+                        <select id="house_num">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>         
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id = "cancel_select">取消</button>
+                <button type="button" class="btn btn-primary" id = "select_repair_report">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--完善报修信息-->
+        <div class="modal fade" id="complete_repair_modal" tabindex="-1" style="display: none;" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" style="display: none;" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">完善报修信息</h4>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label" for="repairer_name">维修人员姓名</label>
+                    <div class="controls">
+                      <input class="input-xlarge focused" id="repairer_name" type="text" placeholder="姓名">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="repairer_phone">维修人员联系电话</label>
+                    <div class="controls">
+                      <input class="input-xlarge focused" id="repairer_phone" type="text" placeholder="联系电话">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="repair_fee">维修费用</label>
+                    <div class="controls">
+                      <input class="input-xlarge focused" name = 'repair_fee' id="repair_fee" type="text" placeholder="维修费用">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="repair_result">维修结果</label>
+                    <div class="controls">
+                      <textarea class="form-control" id = "repair_result" rows="6" cols = "8" ></textarea>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id = "cancel_complete">取消</button>
+                <button type="button" class="btn btn-primary" id = "complete_repair">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--查看报修房产信息-->
+        <div class="modal fade" id="inquire_house_modal" tabindex="-1" style="display: none;" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" style="display: none;" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">查看房产信息</h4>
+              </div>
+              <div class="modal-body">
+                <table class = "table" id = "house_info">
+                    <legend>房产信息</legend>
+                    <thead>
+                        <tr>
+                            <th>栋宇</th>
+                            <th>单元</th>
+                            <th>楼层</th>
+                            <th>房号</th>
+                            <th>类型</th>
+                            <th>面积（平方米）</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <table class = "table" id = "repair_owner_info_table">
+                    <legend>业主信息</legend>
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>电话</th>
+                            <th>邮箱</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id = "cancel">确定</button>
+                <!--<button type="button" class="btn btn-primary" id = "complete_repair">确定</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+        <!--/.fluid-container-->    
+
+    </body>
+
+</html>
