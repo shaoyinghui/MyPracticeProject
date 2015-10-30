@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+   <include
+       android:layout_height="wrap_content"
+       layout="@layout/title_view" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@drawable/list_item_bg_album_normal"
+        android:gravity="center"
+        android:text="离线观看"
+        android:textColor="#ffffff"
+        android:textSize="28sp" />
+    <ImageView 
+        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:src="@drawable/list_item_divide_operate"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@drawable/list_item_bg_album_normal"
+        android:gravity="center"
+        android:text="播放记录"
+        android:textColor="#ffffff"
+        android:textSize="28sp" />
+    <ImageView 
+        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:src="@drawable/list_item_divide_operate"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@drawable/list_item_bg_album_normal"
+        android:gravity="center"
+        android:text="收藏夹"
+        android:textColor="#ffffff"
+        android:textSize="28sp" />
+    <ImageView 
+        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:src="@drawable/list_item_divide_operate"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@drawable/list_item_bg_album_normal"
+        android:gravity="center"
+        android:text="我的账号"
+        android:textColor="#ffffff"
+        android:textSize="28sp" />
+    <ImageView 
+        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:src="@drawable/list_item_divide_operate"/>
+
+</LinearLayout>
